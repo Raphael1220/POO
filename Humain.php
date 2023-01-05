@@ -1,7 +1,15 @@
 <?php
-
-class Humain
+trait Bipède{
+    public function courir(){
+        echo 'Je cours';
+    }
+}
+interface Mammifère{
+    public function pilosité():string;
+}
+abstract class Humain implements Mammifère
 {
+    use Bipède;
 
     public $taille = 175;
     public $nom;
@@ -14,12 +22,12 @@ class Humain
     ){
         echo "Je suis né.e \n";
         echo $this->nom = $nomDeFamille."\n";
-        echo self::$population+=1;
+        //echo self::$population+=1;
     }
 
     public function __destruct(){
         echo "Je suis mort.e\n";
-        echo self::$population-=1;
+        //echo self::$population-=1;
     }
 
     public function marcher()
@@ -42,11 +50,19 @@ class Humain
         $this->secret=$leSecret;
     }
 
+    public function pilosité():string{
+        return "J'ai du poil";
+    }
+
 }
 
 class Femme extends Humain{
     public function faireEnfant(){
         echo $this->nom.'peut enfanter';
+    }
+
+    public function pilosité():string{
+        return "J'ai moins de poil";
     }
 
 }
@@ -56,9 +72,10 @@ class Homme extends Humain{
 
 }
 
+
 $marcelline = new Femme('Dupont Marcelline');
 
-$constance = new Femme('Durant Constance');
+//$constance = new Femme('Durant Constance');
 
 $adam = new Homme('Eve Adam');
 
@@ -77,3 +94,8 @@ $adam = new Homme('Eve Adam');
 
 //echo $marcelline->faireEnfant();
 //echo $adam->faireEnfant();
+
+echo $marcelline->courir();
+
+echo $marcelline->pilosité();
+echo $adam->pilosité();
