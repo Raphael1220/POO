@@ -6,6 +6,8 @@ class Humain
     public $taille = 175;
     public $nom;
 
+    private $secret;
+
     public function __construct(
         string $nomDeFamille
     ){
@@ -26,11 +28,24 @@ class Humain
     {
         echo $this->taille += 1;
     }
+
+    public function getSecret()
+    {
+        return $this->secret;
+    }
+
+    public function setSecret($leSecret)
+    {
+        $this->secret=$leSecret;
+    }
 }
 $marcelline = new Humain('Dupont Marcelline');
-$constance = new Humain('Durant Constance');
+//$constance = new Humain('Durant Constance');
 
 //echo 'La taille de Marcelline et de '.$marcelline->taille." cm \n";
 //echo 'La taille de Constance et de '.$constance ->taille." cm \n";
 
 //unset($constance);
+
+$marcelline->setSecret('Le secret');
+echo $marcelline->getSecret();
