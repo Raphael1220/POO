@@ -7,16 +7,19 @@ class Humain
     public $nom;
     private $secret;
     public $force = 1;
+    public static $population = 0;
 
     public function __construct(
         string $nomDeFamille
     ){
         echo "Je suis né.e \n";
         echo $this->nom = $nomDeFamille."\n";
+        echo self::$population+=1;
     }
 
     public function __destruct(){
         echo "Je suis mort.e\n";
+        echo self::$population-=1;
     }
 
     public function marcher()
@@ -26,7 +29,7 @@ class Humain
 
     public function maTaille()
     {
-        echo $this->taille += 1;
+        echo ($this->taille += 1)."\n";
     }
 
     public function getSecret()
@@ -54,8 +57,11 @@ class Homme extends Humain{
 }
 
 $marcelline = new Femme('Dupont Marcelline');
+
 $constance = new Femme('Durant Constance');
+
 $adam = new Homme('Eve Adam');
+
 
 //echo 'La taille de Marcelline est de '.$marcelline->taille." cm \n";
 //echo 'La taille de Constance est de '.$constance ->taille." cm \n";
@@ -69,5 +75,5 @@ $adam = new Homme('Eve Adam');
 //echo 'La force de Marcelline est de '.$marcelline->force."\n";
 //echo 'La force de Adam est de '.$adam->force."\n";
 
-echo $marcelline->faireEnfant();
-echo $adam->faireEnfant();
+//echo $marcelline->faireEnfant();
+//echo $adam->faireEnfant();
