@@ -42,6 +42,9 @@ class Humain
 }
 
 class Femme extends Humain{
+    public function faireEnfant(){
+        echo $this->nom.'peut enfanter';
+    }
 
 }
 
@@ -62,6 +65,9 @@ $adam = new Homme('Eve Adam');
 //$marcelline->setSecret('Le secret');
 //echo $marcelline->getSecret();
 
-echo $adam->marcher()."\n";
-echo 'La force de Marcelline est de '.$marcelline->force."\n";
-echo 'La force de Adam est de '.$adam->force."\n";
+//echo $adam->marcher()."\n";
+//echo 'La force de Marcelline est de '.$marcelline->force."\n";
+//echo 'La force de Adam est de '.$adam->force."\n";
+
+echo $marcelline->faireEnfant();
+echo $adam->faireEnfant();
