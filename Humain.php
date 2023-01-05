@@ -5,8 +5,8 @@ class Humain
 
     public $taille = 175;
     public $nom;
-
     private $secret;
+    public $force = 1;
 
     public function __construct(
         string $nomDeFamille
@@ -21,7 +21,7 @@ class Humain
 
     public function marcher()
     {
-        echo "Je marche \n";
+        echo $this->nom." est entrain de marché \n";
     }
 
     public function maTaille()
@@ -38,14 +38,30 @@ class Humain
     {
         $this->secret=$leSecret;
     }
-}
-$marcelline = new Humain('Dupont Marcelline');
-//$constance = new Humain('Durant Constance');
 
-//echo 'La taille de Marcelline et de '.$marcelline->taille." cm \n";
-//echo 'La taille de Constance et de '.$constance ->taille." cm \n";
+}
+
+class Femme extends Humain{
+
+}
+
+class Homme extends Humain{
+    public $force = 2;
+
+}
+
+$marcelline = new Femme('Dupont Marcelline');
+$constance = new Femme('Durant Constance');
+$adam = new Homme('Eve Adam');
+
+//echo 'La taille de Marcelline est de '.$marcelline->taille." cm \n";
+//echo 'La taille de Constance est de '.$constance ->taille." cm \n";
 
 //unset($constance);
 
-$marcelline->setSecret('Le secret');
-echo $marcelline->getSecret();
+//$marcelline->setSecret('Le secret');
+//echo $marcelline->getSecret();
+
+echo $adam->marcher()."\n";
+echo 'La force de Marcelline est de '.$marcelline->force."\n";
+echo 'La force de Adam est de '.$adam->force."\n";
