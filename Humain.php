@@ -1,11 +1,22 @@
 <?php
 
-class Humain{
+class Humain
+{
 
     public $taille = 175;
     public $nom;
-}
 
+    public function marcher()
+    {
+        echo "Je marche \n";
+    }
+
+    public function maTaille()
+    {
+        echo $this->taille += 1;
+    }
+
+}
 $marcelline = new Humain();
 $constance = new Humain();
 
